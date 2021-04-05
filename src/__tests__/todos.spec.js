@@ -178,15 +178,18 @@ describe('Todos', () => {
       })
       .set('username', userResponse.body.username);
 
+    console.log("444---------------------")
     await request(app)
       .delete(`/todos/${todo1Response.body.id}`)
       .set('username', userResponse.body.username)
       .expect(204);
 
+    console.log("555---------------------")
     const listResponse = await request(app)
       .get('/todos')
       .set('username', userResponse.body.username);
 
+    console.log("CHEGOU AQUI????")
     expect(listResponse.body).toEqual([]);
   });
 
